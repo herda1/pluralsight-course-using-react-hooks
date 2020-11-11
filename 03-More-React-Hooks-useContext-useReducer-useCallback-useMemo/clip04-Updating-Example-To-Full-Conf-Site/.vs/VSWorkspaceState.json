@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\pages",
+    "\\public",
+    "\\src"
   ],
+  "SelectedNode": "\\src\\speakersReducer.js",
   "PreviewInSolutionExplorer": false
 }
