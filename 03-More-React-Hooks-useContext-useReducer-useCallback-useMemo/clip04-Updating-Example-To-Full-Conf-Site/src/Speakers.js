@@ -4,6 +4,7 @@ import React, {
   useReducer,
   useState,
   useCallback,
+  useMemo,
 } from 'react';
 
 import { Header } from '../src/Header';
@@ -48,9 +49,9 @@ const Speakers = ({}) => {
     setSpeakingSaturday(!speakingSaturday);
   };
 
-  const speakerListFiltered = isLoading
-    ? []
-    : speakerList
+  const newSpeakerList = useMemo(
+    () =>
+      speakerList
         .filter(
           ({ sat, sun }) =>
             (speakingSaturday && sat) || (speakingSunday && sun),
@@ -63,7 +64,11 @@ const Speakers = ({}) => {
             return 1;
           }
           return 0;
-        });
+        }),
+    [speakingSaturday, speakingSunday, speakerList],
+  );
+
+  const speakerListFiltered = isLoading ? [] : newSpeakerList;
 
   const handleChangeSunday = () => {
     setSpeakingSunday(!speakingSunday);
