@@ -1,3 +1,5 @@
+import { GlobalContext } from './GlobalState';
+
 const speakersReducer = (state, action) => {
   function updateFavorite(favoriteValue) {
     return state.speakerList.map((item, index) => {
@@ -16,6 +18,9 @@ const speakersReducer = (state, action) => {
     }
     case 'unfavorite': {
       return { ...state, speakerList: updateFavorite(false) };
+    }
+    case 'incrementFavoriteClickCount': {
+      return { ...state, favoriteClickCount: state.favoriteClickCount + 1 };
     }
     default:
       return state;
