@@ -6,9 +6,7 @@ const SpeakerDetail = React.memo(({ speakerRec, onHeartFavoriteHandler }) => {
   const { id, firstName, lastName, bio, favorite } = speakerRec;
   console.log(`SpeakerDetail:${id} ${firstName} ${lastName} ${favorite}`);
 
-  const { favoriteClickCount, incrementFavoriteClickCount } = useContext(
-    GlobalContext,
-  );
+  const { incrementFavoriteClickCount } = useContext(GlobalContext);
 
   return (
     <div className="card col-4 cardmin">
@@ -31,7 +29,6 @@ const SpeakerDetail = React.memo(({ speakerRec, onHeartFavoriteHandler }) => {
             {firstName} {lastName}
           </span>
         </h4>
-        <h5>Click Count: {favoriteClickCount}</h5>
         <span>{bio}</span>
       </div>
     </div>
