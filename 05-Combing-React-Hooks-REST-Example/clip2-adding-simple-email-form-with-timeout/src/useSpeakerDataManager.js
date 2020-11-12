@@ -9,7 +9,7 @@ function useSpeakerDataManager() {
     {
       isLoading: true,
       speakerList: [],
-      favoriteClickCount: 10,
+      favoriteClickCount: 0,
     },
   );
   function incrementFavoriteClickCount() {
